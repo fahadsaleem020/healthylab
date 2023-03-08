@@ -2,11 +2,11 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import Navbar from "@/components/navbar";
 import { ourTenSteps } from "@/defaults";
 import Footer from "@/components/footer";
-import React, { FC } from "react";
+import React, { FC } from "react"; 
 
 const OurTenSteps: FC = () => {
   return (
-    <React.Fragment>
+    <React.Fragment> 
       <Box as="main" px="7" bg="white">
         <Navbar
           toggler={{
@@ -30,7 +30,7 @@ const OurTenSteps: FC = () => {
           );
         })}
       </Box>
-      <Footer px="7" />
+      <Footer px="7" /> 
     </React.Fragment>
   );
 };

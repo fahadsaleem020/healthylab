@@ -10,12 +10,12 @@ import {
 } from "@chakra-ui/react";
 import { FC } from "react";
 import { aboutUs } from "@/defaults";
-import Footer from "@/components/footer";
+import Footer from "@/components/footer"; 
 
 const AboutUs = () => {
   const [isMobile] = useMediaQuery("(min-width: 900px)");
 
-  return (
+  return ( 
     <Box as="main" bg="white">
       <Navbar
         py={isMobile ? undefined : "4"}
@@ -49,7 +49,7 @@ const AboutUs = () => {
         );
       })}
       <Footer px="7" />
-    </Box>
+    </Box> 
   );
 };
 

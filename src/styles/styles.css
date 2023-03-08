@@ -1,0 +1,90 @@
+:root {
+    --themeGreen: #658052;
+    --white: #ffffff;
+  }
+
+
+form.detailsForm {
+    max-width: 600px;
+    width: 100%;
+    margin: 25px auto;
+}
+
+label.radioLabel {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    border: 1px solid #f8f8f8;
+    height: 45px;
+    line-height: 45px;
+    transition: all ease-in-out 0.5s;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.radiogroup {
+    display: flex;
+    gap: 10px;
+}
+
+.radioLabel:hover {
+    background-color: var(--themeGreen);
+    color: #f8f8f8;
+}
+
+.radiogroup input[type="radio"],.radiogroup input[type="checkbox"] {
+    display: none;
+}
+
+
+
+.radiogroup input:checked+label {
+    background-color: var(--themeGreen);
+    color: #f8f8f8;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 ;
+}
+
+
+
+.inputgroup label{margin: 0; }
+.inputgroup{
+    margin-top: 30px;
+}
+.col-12{
+    width: 100%;
+    padding: 0 10px;
+}
+
+.rounded-full{
+    border-radius: 50% !important;
+}
+.border-theme{
+    border-color: var(--themeGreen) !important;
+}
+.col-md-6 {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.col-md-4 {
+    width:100% !important;
+}
+.w-120px{
+    width:50px !important;
+}
+@media (min-width: 900px) {
+    .col-md-4 {
+        width: 32% !important;
+    }
+    .col-md-6 {
+        width: 50%;
+        padding: 0 10px;
+    }
+}
+

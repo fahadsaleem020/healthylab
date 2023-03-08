@@ -23,6 +23,6 @@
       "@configs/*": ["configs/*"]
     }
   },
-  "include": ["src", "config"],
+  "include": ["src", "config"], 
   "references": [{ "path": "./tsconfig.node.json" }]
 }

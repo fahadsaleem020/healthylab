@@ -1,96 +1,7 @@
 import { Dish, Plan } from "@/types/schema";
 
 export const dishes: Omit<Dish, "modes" | "id">[] = [
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 568,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
-  {
-    name: "Rasberry Pie",
-    calories: 560,
-    carbohydrates: 120,
-    fat: 2312,
-    imageUrl: "/dish.png",
-    protein: 98773,
-    briefDescription: `Delicious dessert, filled with tart berries, buttery crust, perfect with ice cream.`,
-    detailedDescription: `Raspberry pie is a delectable dessert that's perfect for any occasion. This sweet treat is made with juicy raspberries that are baked into a buttery crust, creating a delicious combination of flavors and textures. The tartness of the raspberries blends perfectly with the sweetness of the crust, making every bite a heavenly experience. Whether served warm or cold, raspberry pie is an absolute delight to the taste buds. So, whether you're a fan of fruit pies or just looking for a new dessert to try, raspberry pie is definitely worth a taste.`,
-  },
+  
 ];
 
 export const ourTenSteps: { title: string; data: string }[] = [
@@ -140,28 +51,7 @@ export const ourTenSteps: { title: string; data: string }[] = [
   },
 ];
 
-export const plans: Plan[] = [
-  {
-    id: "1",
-    name: "Keto",
-    descriptions: `Vel illum dolore eu feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis. Feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis
-    Vel illum dolore eu feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis. Feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis
-
-    `,
-    duration: 90,
-    imageUrl: "https://recipe-to-eat.s3.amazonaws.com/247/about-us.jpg",
-  },
-  {
-    id: "2",
-    name: "Balanced ",
-    descriptions: `Vel illum dolore eu feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis. Feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis
-    Vel illum dolore eu feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis. Feugiat nulla facilisis at vero eros et accu qui blandit praesent luptatum zril delenit augue duis
-    `,
-    duration: 60,
-    imageUrl: "https://recipe-to-eat.s3.amazonaws.com/247/about-us.jpg",
-  },
-];
-
+ 
 export const aboutUs: { data: string; title: string; imageUrl: string }[] = [
   {
     title: "WHY HEALTHY LAB",

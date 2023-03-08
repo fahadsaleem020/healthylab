@@ -21,8 +21,9 @@ import {
   DrawerCloseButton,
   ImageProps,
   TextProps,
+  Link as Clink,
 } from "@chakra-ui/react";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import {
   AiOutlineHome,
@@ -33,7 +34,8 @@ import {
 import { BsFillCartFill, BsFillPersonFill } from "react-icons/bs";
 import { Link as RLink, useLocation } from "react-router-dom";
 import { Paths } from "@/types/navigation";
-
+import { ConfigRequest } from "@/config/ConfigRequest";
+import { Link } from "react-router-dom";
 const Navbar: FC<
   StackProps & { linksContainer?: StackProps; toggler?: IconButtonProps }
 > = ({ linksContainer, toggler, ...props }) => {
@@ -52,7 +54,22 @@ const Navbar: FC<
     bg: brand.light_green,
     color: "white",
   };
+  const {api} = ConfigRequest();
 
+  const [isSession, setSession] = useState(false)
+  const session = async () => {
+    await api.post('session').then((res)=>{
+      if(res.data.res === 'login'){
+        setSession(true);
+      }else{
+        setSession(false);
+      }
+    })
+  }
+  useEffect(() => {
+    session()
+  }, [])
+  
   return (
     <HStack justifyContent="space-between" {...props}>
       <Brand />
@@ -127,6 +144,8 @@ const Navbar: FC<
       </Show>
       {/* buttons */}
       <HStack pt="4" color="white">
+    {!isSession ? (
+      <>
         <RLink to="/signup">
           <CallToAction
             bg={brand.light_green}
@@ -134,13 +153,25 @@ const Navbar: FC<
               border: "1px",
               bg: "transparent",
             }}
-          >
+          > 
             Get Started
-          </CallToAction>
+          </CallToAction> 
         </RLink>
-
+         <Clink href="http://healthylab.io/admin" isExternal>
+         <CallToAction
+           bg={brand.light_green}
+           _hover={{
+             border: "1px",
+             bg: "transparent",
+           }}
+         >
+           Login
+         </CallToAction>
+       </Clink>
+       </>
+        ) : (
         <Show breakpoint="(min-width: 900px)">
-          <RLink to="/signin">
+          <Clink href="http://healthylab.io/admin" isExternal>
             <IconButton
               rounded="full"
               px="6"
@@ -153,8 +184,8 @@ const Navbar: FC<
               }}
               size={["sm", "sm", "sm", "md"]}
             />
-          </RLink>
-          <IconButton
+          </Clink>
+          {/* <IconButton
             bg={brand.light_green}
             rounded="full"
             px="6"
@@ -165,8 +196,9 @@ const Navbar: FC<
               bg: "transparent",
             }}
             size={["sm", "sm", "sm", "md"]}
-          />
+          /> */}
         </Show>
+          )}
         {/* toggler */}
         <MenuToggler
           aria-label="toggler"

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   Box,
   Flex,
@@ -18,16 +19,21 @@ import {
   Button,
   VStack,
   ModalFooter,
+  Spinner,
+  SlideFade,
 } from "@chakra-ui/react";
 import { TbPizza, TbMeat } from "react-icons/tb";
 import { GiFat, GiWheat } from "react-icons/gi";
 import Navbar from "@/components/navbar";
 import Footer from "./components/footer";
 import { Dish } from "@/types/schema";
-import { dishes } from "@/defaults";
-import { FC, useState } from "react";
-
+import { FC, useState, useEffect } from "react";
+import { ConfigRequest } from "./config/ConfigRequest";
+import { useParams } from "react-router-dom";
+import notfound from '../public/notfound.gif'; 
 const Menus: FC = () => {
+  const { id = '' } = useParams<{ id?: string }>();
+
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [modalData, setModalData] = useState<Omit<Dish, "modes" | "id">>();
 
@@ -36,50 +42,98 @@ const Menus: FC = () => {
     colors: { brand },
   } = useTheme() as any;
 
-  return (
-    <Box as="main" bg={brand.dark_purple} px="7">
-      <Navbar color="white" py={isMobile ? undefined : "4"} mb="20" />
-      <Heading color="white" py="5" textAlign={"center"} size="2xl">
-        Our Menus
-      </Heading>
-      <Box py="10">
-        <Grid
-          templateColumns={[
-            "repeat(1, 1fr)",
-            "repeat(1, 1fr)",
-            "repeat(2, 1fr)",
-            "repeat(3, 1fr)",
-            // "repeat(4, 1fr)",
-          ]}
-          gap={"12"}
-        >
-          {dishes.map((val, i) => {
-            return (
-              <GridItem
-                key={i}
-                bg="white"
-                rounded="2xl"
-                cursor="pointer"
-                transition={"all 300ms cubic-bezier(0.77, 0, 0.175, 1)"}
-                title="click to view more details"
-                onClick={() => {
-                  onOpen();
-                  setModalData(val);
-                }}
-                _hover={{
-                  shadow: "dark-lg",
-                  transform: "scale(1.1)",
-                }}
-              >
-                <Card dishDetails={val} />
-              </GridItem>
-            );
-          })}
-        </Grid>
-        <DetailsModal isOpen={isOpen} onClose={onClose} modalData={modalData} />
-      </Box>
-      <Footer px="7" left={0} right={0} bottom={0} />
-    </Box>
+  const { api, getUser, getMenu } = ConfigRequest();
+  const [dishes, setDishes] = useState<Dish[]>([]);
+  const [menuData, setMenuData] = useState([]);
+  const [isPending, setIsPending] = useState(true)
+  const loadMenuData = async () => {
+    setIsPending(true);
+    const formdata = new FormData();
+    formdata.append('id', id);
+    try {
+      const response = await api.post<Dish[]>('menu', formdata);
+      setDishes([...dishes, ...response.data]);
+
+    } catch (err) {
+      console.error(err);
+    }
+    setIsPending(false);
+  };
+
+  useEffect(() => {
+    loadMenuData();
+  }, [])
+
+  return ( 
+      <Box as="main" h='full' bg={brand.dark_purple} px="7">
+        <Navbar color="white" py={isMobile ? undefined : "4"} mb="20" />
+        {isPending ? (
+          <Box h='full' w='full' display='flex' justifyContent='center'>
+            <Spinner
+              thickness='4px'
+              speed='0.65s'
+              emptyColor='gray.200'
+              color='blue.500'
+              size='xl'
+              mx='auto'
+            />
+          </Box>
+        ) :
+
+          dishes.length > 0 ? (
+            <>
+              <Heading color="white" py="5" textAlign={"center"} size="2xl">
+                Our Menus
+              </Heading>
+              <Box py="10">
+                <Grid
+                  templateColumns={[
+                    "repeat(1, 1fr)",
+                    "repeat(1, 1fr)",
+                    "repeat(2, 1fr)",
+                    "repeat(3, 1fr)",
+                  ]}
+                  position='relative'
+                  gap={"12"} h='full'
+                >
+                  {dishes.map((val, i) => {
+                    return (
+                      <GridItem
+                        position='relative'
+                        key={i}
+                        bg="white"
+                        rounded="2xl"
+                        cursor="pointer"
+                        transition={"all 300ms cubic-bezier(0.77, 0, 0.175, 1)"}
+                        title="click to view more details"
+                        onClick={() => {
+                          onOpen();
+                          setModalData(val);
+                        }}
+                        _hover={{
+                          shadow: "dark-lg",
+                          transform: "scale(1.1)",
+                        }}
+                      >
+                        <SlideFade in={!isPending} offsetY={'12rem'}>
+                          <Card dishDetails={val} />
+                        </SlideFade>
+                      </GridItem>
+                    );
+                  })}
+                </Grid>
+                <DetailsModal isOpen={isOpen} onClose={onClose} modalData={modalData} />
+              </Box>
+            </>
+          ) : (
+            <> 
+                <Image src={notfound} mx={'auto'} /> 
+            </>
+          )
+        }
+
+        <Footer px="7" left={0} right={0} bottom={0} />
+      </Box> 
   );
 };
 
@@ -97,6 +151,7 @@ const Card: FC<{ dishDetails: Omit<Dish, "modes" | "id"> }> = ({
     protein,
   } = dishDetails;
   return (
+
     <Flex flexDir={"column"}>
       <Box w="full" minH="13rem" position="relative">
         <Image
@@ -104,6 +159,9 @@ const Card: FC<{ dishDetails: Omit<Dish, "modes" | "id"> }> = ({
           alt="dish name"
           src={imageUrl}
           maxW={"15rem"}
+          height={'15rem'}
+          objectFit={'cover'}
+          borderRadius={'50%'}
           left="50%"
           top="-20%"
           transform="translateX(-50%)"

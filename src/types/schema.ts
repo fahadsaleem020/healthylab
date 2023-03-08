@@ -14,15 +14,53 @@ export declare interface Dish {
   carbohydrates: number;
   modes: "slow" | "steady" | "aggresive" | "recommended";
 }
+export declare interface MenuParam {
+  id :string | null;
+}
 
 export declare interface Plan {
-  id: string; //uuid
+  id: number; //uuid
   imageUrl: string;
   name: string;
   descriptions: string;
   duration: number; // in days
 }
-
+export declare interface Package {
+  id: string; //uuid
+  title: string;
+  price: string; 
+  price_two: string; 
+  price_three: string; 
+  description: string; 
+  selected: string; 
+  perDaymMeal: string; 
+  icon: string; 
+}
+export declare interface SubsInfo{
+  id: string; 
+  title: string;
+  mealsPerDay: string; 
+  price: string;  
+}
+export declare interface Alergies {
+  id: string; //uuid
+  allergy: string;
+  icon: string; 
+}
+export declare interface Details {
+  birthday: string;
+  gender: string;
+  goal: string;
+  height: string;
+  physical: string;
+  weight: string;
+}
+export declare interface SignUp {
+  email: string;
+  password: string;
+  confirmpassword: string; 
+}
+  
 export declare interface Customer {
   id: string; //uuid
   name: string;
